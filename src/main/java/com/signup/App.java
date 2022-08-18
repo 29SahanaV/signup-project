@@ -1,7 +1,7 @@
 package com.signup;
 
 /**
- * create a signup page by using REGEX and EXCEPTION HANDLING
+ * Hello world!
  *
  */
 import java.util.Scanner;
@@ -10,8 +10,39 @@ public class App
 {
     public static void main( String[] args )
     {
-       Scanner sa=new Scanner(System.in);    //scanner object
-       signupvalidations
-       
+    	Scanner sc=new Scanner(System.in);
+    	signupvalidation sv= new signupvalidation();
+    	out.println("Welcome to Signup Page");
+        out.println("Enter Username ");
+        String username=sc.next();
+        try {
+        	if(sv.checkUsername(username)) {
+        		out.println("Enter Password");
+        		String password=sc.next();
+        		try {
+        			if(sv.checkPassword(password))
+        			{
+        				out.println("Phone Number");
+        				String phone=sc.next();
+        				try {
+        					if(sv.checkPhone(phone))
+        					{
+        						out.println("Signup successful");
+        						out.println("username :"+username+"password"+password+"phone number"+phone);
+        					}
+        				}
+        				catch(Exception e) {
+        					out.println(e.getMessage());
+        				}
+        			}
+        		}
+        		catch(Exception e) {
+        			out.println(e.getMessage());
+        		}
+        	}
+        }
+        catch(Exception e){
+        	out.println(e.getMessage());
+        }
     }
 }
